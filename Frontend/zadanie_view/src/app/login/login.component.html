@@ -1,0 +1,21 @@
+<mat-form-field appearance="outline" class="example-container">
+  <mat-label>login/email</mat-label>
+  <input matInput placeholder="pat@example.com" [formControl]="email" required #Email>
+  <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+
+<p *ngIf="buttonResetPassword">
+  <mat-form-field appearance="outline" class="example-container">
+    <mat-label>password</mat-label>
+    <input matInput placeholder="password" [formControl]="password" required #Password>
+    <mat-error *ngIf="password.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <button mat-button (click)="buttonResetPassword = false">Reset Password</button>
+  <button class="example-button-row" mat-raised-button (click)="loginUser(Email.value, Password.value)">Zaloguj</button>
+</p>
+<button class="example-button-row" mat-raised-button *ngIf="buttonResetPassword===false"
+  (click)="resetPassword(Email.value)">Submit</button>
+
+<div *ngIf="loginMessage !== ''">
+  {{ loginMessage }}
+</div>

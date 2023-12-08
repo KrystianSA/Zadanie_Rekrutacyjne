@@ -1,0 +1,29 @@
+<div *ngIf="showLogin">
+  <mat-form-field appearance="outline" class="example-container">
+    <mat-label>login/email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required #Email>
+    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline" class="example-container">
+    <mat-label>password</mat-label>
+    <input matInput placeholder="password" [formControl]="password" required #Password>
+    <mat-error *ngIf="password.invalid">{{ getErrorMessage1() }}</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline" class="example-container">
+    <mat-label>repeat password</mat-label>
+    <input matInput placeholder="repeat password" [formControl]="password2" required>
+    <mat-error *ngIf="password2.invalid">{{ getErrorMessage2() }}</mat-error>
+  </mat-form-field>
+  
+  <button class="example-button-row" *ngIf="!isRegister" (click)="registerUser(Email.value, Password.value)" mat-raised-button>Załóż konto</button>
+  
+  <div *ngIf="loginMessage !== ''">
+    {{ loginMessage }}
+  </div>
+</div>
+
+<div *ngIf="!showLogin">
+  <app-login></app-login>
+</div>

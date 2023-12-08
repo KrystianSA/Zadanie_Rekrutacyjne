@@ -1,0 +1,11 @@
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+.center {
+  width: 25%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
